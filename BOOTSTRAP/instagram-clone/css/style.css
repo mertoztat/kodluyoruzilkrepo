@@ -36,9 +36,9 @@ body {
   text-align: center;
   font-size: 14px;
   color: gray;
-  background-position: 40%;
   background-size: 6%;
   background: url('../assets/search-solid.svg');
+  background-position: 37%;
   height: 14px; 
   background-repeat: no-repeat;
 }
