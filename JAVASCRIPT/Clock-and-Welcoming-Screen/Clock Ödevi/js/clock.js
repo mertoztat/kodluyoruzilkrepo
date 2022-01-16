@@ -1,53 +1,21 @@
-let Name = prompt("Adınızı Giriniz")
-let myName= document.querySelector("#myName")
+let userName = document.getElementById("myName")
+let clock = document.getElementById("myClock")
 
-myName.innerHTML = `${Name}`
+let weekDay = ["Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi","Pazar"]
 
+userName = prompt("Adınız nedir?")
+myName.innerHTML = `Hoşgeldin ${userName}`
 
-function showTime() {
-  const myClock = document.querySelector("#myClock");
-  const myDate = document.querySelector("#myDate");
-  const date = new Date();
-  let sec = date.getSeconds();
-  let min = date.getMinutes();
-  let hour = date.getHours();
-  let day = date.getDate();
-  let dayName = date.getDay();
-  let month = date.getMonth() + 1;
-  let year = date.getFullYear();
+function showTime(){
+    const today = new Date()
+    let h = today.getHours()
+    let m = today.getMinutes()
+    let s = today.getSeconds()
+    let d = weekDay[today.getDay()] 
 
-  switch (dayName) {
-    case 0:
-      dayName = "Pazartesi";
-      break;
-    case 1:
-      dayName = "Salı";
-      break;
-    case 2:
-      dayName = "Çarşamba";
-      break;
-    case 3:
-      dayName = "Perşembe";
-      break;
-    case 4:
-      dayName = "Cuma";
-      break;
-    case 5:
-      dayName = "Cumartesi";
-      break;
-    case 6:
-      dayName = "Pazar";
-      break;
-  }
+    clock.innerHTML = h + ":" + m + ":" + s + "" + d
 
-  sec = sec < 10 ? "0" + sec : sec;
-  min = min < 10 ? "0" + min : min;
-  hour = hour < 10 ? "0" + hour : hour;
-
-  myClock.innerHTML = hour + ":" + min + ":" + sec;
-  myDate.innerHTML = day + "." + month + "." + year + " " + dayName;
-
-  setTimeout(showTime, 1000);
+setTimeout(showTime, 1000)    
 }
+showTime()
 
-showTime();
